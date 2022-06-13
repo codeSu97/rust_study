@@ -5,18 +5,17 @@
 /**
  * 泛型，generics
  */
+fn largest<T: PartialOrd + Copy>(list: &[T]) -> T {
+    let mut largest = list[0];
 
-// fn largest<T: std::cmp::PartialOrd>(list: &[T]) -> T {
-//     let mut largest = list[0];
+    for &item in list.iter() {
+        if item > largest {
+            largest = item;
+        }
+    }
 
-//     for &item in list.iter() {
-//         if item > largest {
-//             largest = item;
-//         }
-//     }
-
-//     largest
-// }
+    largest
+}
 
 // const 泛型
 #[warn(unused_variables)]
@@ -40,14 +39,14 @@ fn add<T: std::ops::Add<Output = T>>(a: T, b: T) -> T {
 fn main() {
     let number_list = vec![30, 50, 20, 100, 70];
 
-    // let result = largest(&number_list);
+    let result = largest(&number_list);
     println!("The largest number is {:?}", number_list);
-    // println!("The largest number is {}", result);
+    println!("The largest number is {}", result);
 
     let char_list = vec!['a', 'c', 'b', 'z', 's'];
-    // let result = largest(&char_list);
+    let result = largest(&char_list);
     println!("The largest char is {:?}", char_list);
-    // println!("The largest char is {}", result);
+    println!("The largest char is {}", result);
 
     println!("1 + 2 = {}", add(1, 2));
 
