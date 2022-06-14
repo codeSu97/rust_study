@@ -2,6 +2,7 @@
 name = "rust_study"
 version = "0.1.0"
 edition = "2021"
+description = "Rust圣经学习笔记"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
