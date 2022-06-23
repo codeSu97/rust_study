@@ -70,4 +70,12 @@ fn main() {
     human.fly();
     Pilot::fly(&human);
     Wizard::fly(&human);
+    println!(
+        "{:?}",
+        // 完全限定语法
+        // <Type as Trait>::function(receiver_if_method, next_arg, ...);
+        // 向 Rust 编译器提供了类型注解，也就是 Add 就是 Point，从而执行Point的add方法
+        // 第一个参数是方法接收器 receiver，即self
+        <Point as Add>::add(Point { x: 1, y: 2 }, Point { x: 2, y: 1 })
+    );
 }
